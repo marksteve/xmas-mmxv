@@ -12,6 +12,7 @@ game.state.add('boot', {
     game.load.spritesheet('santa', 'assets/sprites/santa.png', 24, 16);
     game.load.image('snowflake', 'assets/sprites/snowflake.png');
     game.load.image('sparkle', 'assets/sprites/sparkle.png');
+    game.load.audio('bg', 'assets/audio/bg.ogg');
   },
   create: function() {
     this.backSnow = game.add.emitter(game.world.centerX, -32, 600);
@@ -74,6 +75,8 @@ game.state.add('boot', {
     this.sparkles.setYSpeed(-20, 20);
     this.sparkles.width = this.rudolpo.width;
     this.sparkles.start(false, 5000, 50);
+
+    game.add.audio('bg', 1, true).play();
   },
   update: function() {
     this.rudolpo.y = game.world.centerY + 4 * Math.cos(game.time.now / 500);
